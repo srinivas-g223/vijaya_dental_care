@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 import Reveal from "./Reveal";
 import { CLINIC } from "@/lib/clinic";
 
@@ -32,12 +30,12 @@ export default function CtaBand({ compact = false }: CtaBandProps) {
           <p className="relative mt-3 text-base font-semibold text-[#0A3A42] md:text-lg">
             {CLINIC.phones.join("  ·  ")}
           </p>
-          <Link
-            to="/contact"
+          <a
+            href="#contact"
             className="relative mt-7 inline-flex items-center gap-2 rounded-full bg-[#062830] px-8 py-3.5 text-sm font-bold text-white shadow-xl transition-transform duration-200 hover:scale-105 active:scale-95"
           >
             Book Appointment
-          </Link>
+          </a>
         </div>
       </Reveal>
     </section>

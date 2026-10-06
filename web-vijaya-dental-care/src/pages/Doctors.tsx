@@ -1,6 +1,5 @@
 import PageHeader from "@/components/site/PageHeader";
 import Reveal from "@/components/site/Reveal";
-import CtaBand from "@/components/site/CtaBand";
 import { DOCTORS } from "@/lib/clinic";
 
 export default function Doctors() {
@@ -13,7 +12,7 @@ export default function Doctors() {
         subtitle="Experienced hands, gentle care — meet the specialists behind Vijaya Dental Care."
       />
 
-      <section className="container pb-20 md:pb-28">
+      <section className="container pb-12 md:pb-14">
         <div className="grid gap-8 lg:grid-cols-2">
           {DOCTORS.map((doctor, index) => (
             <Reveal key={doctor.name} delay={index * 140} className="h-full">
@@ -52,8 +51,6 @@ export default function Doctors() {
           ))}
         </div>
       </section>
-
-      <CtaBand compact />
     </>
   );
 }

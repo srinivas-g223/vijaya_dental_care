@@ -7,7 +7,7 @@ import { CheckCircle2, Clock, ExternalLink, MapPin, Phone, Send } from "lucide-r
 
 import PageHeader from "@/components/site/PageHeader";
 import Reveal from "@/components/site/Reveal";
-import { CLINIC, TREATMENTS, SOCIALS, whatsappLink } from "@/lib/clinic";
+import { CLINIC, TREATMENTS, whatsappLink } from "@/lib/clinic";
 
 const appointmentSchema = z.object({
   name: z.string().min(2, "Please enter your full name"),
@@ -250,27 +250,11 @@ export default function Contact() {
                 src={CLINIC.mapEmbed}
                 className="h-full min-h-[240px] w-full border-0"
                 loading="lazy"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
 
-            <div>
-              <h3 className="text-sm font-extrabold uppercase tracking-widest text-aqua-light">
-                Follow Us
-              </h3>
-              <div className="mt-3 flex flex-wrap gap-2.5">
-                {SOCIALS.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`${social.color} rounded-full px-5 py-2.5 text-xs font-bold text-white transition-transform duration-200 hover:scale-105`}
-                  >
-                    {social.label}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
         </Reveal>
       </section>

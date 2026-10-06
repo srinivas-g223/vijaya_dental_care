@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react";
+import { HeartHandshake, ShieldCheck, Stethoscope } from "lucide-react";
 
 import PageHeader from "@/components/site/PageHeader";
 import Reveal from "@/components/site/Reveal";
-import CtaBand from "@/components/site/CtaBand";
 import { DOCTORS, IMAGES } from "@/lib/clinic";
 
 const VALUES = [
@@ -47,8 +45,8 @@ export default function About() {
         <Reveal>
           <div className="overflow-hidden rounded-[28px] border hairline">
             <img
-              src={IMAGES.reception}
-              alt="Vijaya Dental Care reception area"
+              src="/about-clinic.png"
+              alt="Bright Vijaya Dental Care reception with a marble desk and comfortable waiting area"
               className="aspect-[4/3] w-full object-cover"
               loading="lazy"
             />
@@ -83,13 +81,13 @@ export default function About() {
         </Reveal>
       </section>
 
-      <section aria-label="Why patients choose us" className="container pb-20 md:pb-28">
+      <section aria-label="Why patients choose us" className="container pb-12 md:pb-16">
         <Reveal>
           <h2 className="max-w-xl text-3xl font-extrabold tracking-tight text-white md:text-4xl">
             Why patients choose us
           </h2>
         </Reveal>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mx-auto mt-6 grid max-w-6xl gap-5 md:grid-cols-3">
           {VALUES.map(({ icon: Icon, title, line, image }, index) => (
             <Reveal key={title} delay={index * 120} className="h-full">
               <article className="surface-card group h-full overflow-hidden rounded-[24px]">
@@ -97,18 +95,18 @@ export default function About() {
                   <img
                     src={image}
                     alt={title}
-                    className="img-zoom aspect-[16/10] w-full object-cover"
+                    className="img-zoom aspect-[16/9] w-full object-cover"
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-4">
                   <div className="flex items-center gap-3">
-                    <span className="bg-aqua-gradient flex h-10 w-10 items-center justify-center rounded-full text-[#062830]">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    <span className="bg-aqua-gradient flex h-9 w-9 items-center justify-center rounded-full text-[#062830]">
+                      <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
-                    <h3 className="text-lg font-extrabold text-white">{title}</h3>
+                    <h3 className="text-base font-extrabold text-white md:text-lg">{title}</h3>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{line}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{line}</p>
                 </div>
               </article>
             </Reveal>
@@ -116,29 +114,6 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container pb-20 md:pb-24">
-        <Reveal>
-          <div className="surface-card flex flex-col items-start justify-between gap-6 rounded-[24px] p-8 md:flex-row md:items-center md:p-10">
-            <div>
-              <h2 className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
-                Meet the doctors behind the smiles
-              </h2>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Experienced hands, gentle care — {DOCTORS[0].degrees} · {DOCTORS[1].degrees}.
-              </p>
-            </div>
-            <Link
-              to="/doctors"
-              className="group bg-aqua-gradient inline-flex shrink-0 items-center gap-2 rounded-full px-6 py-3 text-sm font-bold text-[#062830] transition-transform duration-200 hover:scale-105 active:scale-95"
-            >
-              Meet Our Doctors
-              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </Reveal>
-      </section>
-
-      <CtaBand compact />
     </>
   );
 }

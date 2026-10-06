@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import PageHeader from "@/components/site/PageHeader";
 import Reveal from "@/components/site/Reveal";
-import CtaBand from "@/components/site/CtaBand";
 import { TREATMENTS } from "@/lib/clinic";
 
 export default function Treatments() {
@@ -16,19 +14,19 @@ export default function Treatments() {
         subtitle="From everyday check-ups to complete smile makeovers — gentle, precise treatment for every smile."
       />
 
-      <section className="container pb-20 md:pb-28">
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="container pb-12 md:pb-14">
+        <div className="mx-auto grid max-w-5xl gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {TREATMENTS.map((treatment, index) => (
             <Reveal key={treatment.name} delay={(index % 4) * 100} className="h-full">
-              <Link
-                to="/contact"
+              <a
+                href="#contact"
                 className="surface-card group block h-full overflow-hidden rounded-[24px] transition-transform duration-300 hover:-translate-y-1"
               >
                 <div className="relative overflow-hidden">
                   <img
                     src={treatment.image}
                     alt={treatment.name}
-                    className="img-zoom aspect-[4/3] w-full object-cover"
+                    className="img-zoom aspect-[16/10] w-full object-cover"
                     loading="lazy"
                   />
                   <div
@@ -36,9 +34,9 @@ export default function Treatments() {
                     aria-hidden="true"
                   />
                 </div>
-                <div className="p-5">
+                <div className="p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <h2 className="text-lg font-extrabold tracking-tight text-white">
+                    <h2 className="text-base font-extrabold tracking-tight text-white">
                       {treatment.name}
                     </h2>
                     <span
@@ -52,13 +50,13 @@ export default function Treatments() {
                     {treatment.blurb}
                   </p>
                 </div>
-              </Link>
+              </a>
             </Reveal>
           ))}
         </div>
 
         <Reveal>
-          <p className="mt-10 text-center text-sm text-muted-foreground">
+          <p className="mt-7 text-center text-sm text-muted-foreground">
             Also offering gum treatment, wisdom tooth extractions, dentures and more — call{" "}
             <a href="tel:+919441143909" className="font-bold text-aqua-light hover:underline">
               +91 94411 43909
@@ -67,8 +65,6 @@ export default function Treatments() {
           </p>
         </Reveal>
       </section>
-
-      <CtaBand compact />
     </>
   );
 }

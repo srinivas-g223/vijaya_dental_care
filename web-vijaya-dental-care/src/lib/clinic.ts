@@ -10,14 +10,14 @@ export const CLINIC = {
   phoneLinks: ["tel:+919441143909", "tel:+919988787111"] as const,
   whatsappNumber: "919441143909",
   address:
-    "Flat 102, Ground Floor, Revanth Ganesh Enclave, Kurmannapalem, Visakhapatnam 530046",
+    "Flat no: 102, ground floor, Revanth ganesh enclave, Kurmannapalem, Visakhapatnam, 530046. Landmark: Behind dominos, Claurus Diagnostics.",
   addressShort: "Kurmannapalem, Visakhapatnam",
   hours: "Open 365 days · 9:30 AM – 9:00 PM",
   hoursShort: "9:30 AM – 9:00 PM",
   mapEmbed:
-    "https://www.openstreetmap.org/export/embed.html?bbox=83.0950%2C17.7000%2C83.1750%2C17.7700&layer=mapnik&marker=17.7336%2C83.1345",
+    "https://maps.google.com/maps?q=17.6916047%2C83.1671684&z=16&output=embed",
   mapLink:
-    "https://www.google.com/maps/search/?api=1&query=Vijaya+Dental+Care+Kurmannapalem+Visakhapatnam",
+    "https://www.google.com/maps/search/?api=1&query=17.6916047%2C83.1671684",
 } as const;
 
 export function whatsappLink(message: string): string {
@@ -49,6 +49,10 @@ export const IMAGES = {
     "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/a443c4e0-2155-48a0-8b8a-a2904a1141d2.png",
   sterile:
     "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/3ba8e4fa-5c32-473c-abd4-66b19ce3b35a.png",
+  galleryProfessional: "/gallery-dental-professional.jpg",
+  gallerySmile: "/gallery-healthy-smile.jpg",
+  galleryReception: "/gallery-clinic-reception.jpg",
+  galleryBraces: "/gallery-braces-smile.jpg",
 } as const;
 
 export interface Treatment {
@@ -110,20 +114,20 @@ export interface Doctor {
 
 export const DOCTORS: Doctor[] = [
   {
-    name: "Dr. Chava Vijaya Lakshmi",
-    degrees: "BDS, MIDA, FAGE",
-    specialities: ["Aesthetic dentistry", "Root canals", "Dental laser", "Dental implants"],
-    about:
-      "With a passion for creating healthy and beautiful smiles, Dr. Chava Vijaya Lakshmi brings years of clinical experience and a gentle, patient-first approach to every treatment.",
-    image: IMAGES.doctorChava,
-  },
-  {
     name: "Dr. Uppalapati V.V. Satyanarayana",
     degrees: "BDS, MDS",
     specialities: ["Conservative dentistry", "Micro endodontics"],
     about:
-      "Dr. Uppalapati V.V. Satyanarayana is dedicated to providing comprehensive dental care with a focus on precision, comfort and long-term oral health for every patient.",
-    image: IMAGES.doctorUppalapati,
+      "Dr. Uppalapati V.V. Satyanarayana is a conservative dentist and micro-endodontist with a Master's in Dental Surgery. He provides comprehensive care across advanced dental procedures, including complex restorative and cosmetic treatments. As a dental college faculty member and professor, he stays current with developments in dentistry and helps patients understand their treatment options.",
+    image: "/doctor-uppalapati.png",
+  },
+  {
+    name: "Dr. Chava Vijaya Lakshmi",
+    degrees: "BDS, MIDA, FAGE",
+    specialities: ["Aesthetic dentistry", "Root canals", "Dental laser", "Dental implants"],
+    about:
+      "Dr. Chava Vijaya Lakshmi is a dentist with a Bachelor's in Dental Surgery, a member of the Indian Dental Association and a Fellow of the Academy of General Education. Her clinical interests include aesthetic dentistry, root canal treatment, dental laser procedures and implants. She is committed to continuing education and compassionate, up-to-date patient care.",
+    image: "/doctor-chava.png",
   },
 ];
 
@@ -168,7 +172,19 @@ export const GALLERY: GalleryItem[] = [
   { image: IMAGES.rootCanal, caption: "Root canal treatment", category: "treatments" },
   { image: IMAGES.implants, caption: "Implant planning", category: "treatments" },
   { image: IMAGES.filling, caption: "Tooth filling", category: "treatments" },
-  { image: IMAGES.doctorChava, caption: "Dr. Chava Vijaya Lakshmi", category: "clinic" },
+  { image: IMAGES.galleryProfessional, caption: "Illustrative dental professional", category: "clinic" },
+  { image: IMAGES.gallerySmile, caption: "Healthy smile portrait", category: "smiles" },
+  { image: IMAGES.galleryReception, caption: "Illustrative dental clinic reception", category: "clinic" },
+  { image: IMAGES.galleryBraces, caption: "Braces smile close-up", category: "smiles" },
+  { image: "/gallery-consultation-room.jpg", caption: "Consultation room", category: "clinic" },
+  { image: "/gallery-waiting-room.jpg", caption: "Patient waiting area", category: "clinic" },
+  { image: "/gallery-treatment-room.jpg", caption: "Dental treatment room", category: "equipment" },
+  { image: "/gallery-anniversary-offer.png", caption: "Clinic anniversary information", category: "clinic" },
+  { image: "/gallery-services-offer.png", caption: "Dental services information", category: "treatments" },
+  { image: "/gallery-smile-result.png", caption: "Smile comparison image", category: "smiles" },
+  { image: "/gallery-smile-story.png", caption: "Smile care information", category: "smiles" },
+  { image: "/gallery-gum-treatment.png", caption: "Gum care comparison image", category: "smiles" },
+  { image: "/gallery-smile-transformation.png", caption: "Smile transformation information", category: "smiles" },
 ];
 
 export const GALLERY_FILTERS: Array<{ id: "all" | GalleryCategory; label: string }> = [

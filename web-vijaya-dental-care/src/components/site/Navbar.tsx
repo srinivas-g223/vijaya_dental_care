@@ -1,33 +1,21 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, Phone, X } from "lucide-react";
 
 import Logo from "./Logo";
 import { CLINIC } from "@/lib/clinic";
 
 const NAV_LINKS = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Treatments", to: "/treatments" },
-  { label: "Doctors", to: "/doctors" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", id: "home" },
+  { label: "About Us", id: "about" },
+  { label: "Treatments", id: "treatments" },
+  { label: "Doctors", id: "doctors" },
+  { label: "Gallery", id: "gallery" },
+  { label: "Contact", id: "contact" },
 ] as const;
-
-const linkClass = ({ isActive }: { isActive: boolean }): string =>
-  `relative text-sm font-semibold transition-colors duration-200 hover:text-white ${
-    isActive ? "text-white" : "text-muted-foreground"
-  }`;
-
-const underlineClass = ({ isActive }: { isActive: boolean }): string =>
-  `absolute -bottom-1.5 left-0 h-0.5 rounded-full bg-aqua-gradient transition-all duration-300 ${
-    isActive ? "w-full" : "w-0"
-  }`;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const location = useLocation();
 
   useEffect(() => {
     const onScroll = (): void => setScrolled(window.scrollY > 16);
@@ -35,11 +23,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  // Close the mobile menu on navigation.
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
 
   return (
     <header
@@ -50,20 +33,19 @@ export default function Navbar() {
       }`}
     >
       <div className="container flex h-[72px] items-center justify-between gap-6">
-        <Link to="/" aria-label="Vijaya Dental Care home">
+        <a href="#home" aria-label="Vijaya Dental Care home">
           <Logo />
-        </Link>
+        </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <NavLink key={link.to} to={link.to} className={linkClass} end={link.to === "/"}>
-              {({ isActive }) => (
-                <>
-                  {link.label}
-                  <span className={underlineClass({ isActive })} />
-                </>
-              )}
-            </NavLink>
+          {NAV_LINKS.map(({ label, id }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="relative text-sm font-semibold text-muted-foreground transition-colors duration-200 after:absolute after:-bottom-1.5 after:left-0 after:h-0.5 after:w-0 after:rounded-full after:bg-aqua-gradient after:transition-all hover:text-white hover:after:w-full"
+            >
+              {label}
+            </a>
           ))}
         </nav>
 
@@ -75,12 +57,12 @@ export default function Navbar() {
           >
             <Phone className="h-4 w-4" />
           </a>
-          <Link
-            to="/contact"
+          <a
+            href="#contact"
             className="bg-aqua-gradient rounded-full px-5 py-2.5 text-sm font-bold text-[#062830] shadow-lg shadow-aqua/25 transition-transform duration-200 hover:scale-[1.03] active:scale-95"
           >
             Book Appointment
-          </Link>
+          </a>
         </div>
 
         <button
@@ -96,26 +78,23 @@ export default function Navbar() {
 
       {menuOpen && (
         <nav aria-label="Mobile" className="container flex flex-col gap-1 pb-6 pt-2 lg:hidden">
-          {NAV_LINKS.map((link) => (
-            <NavLink
-              key={link.to}
-              to={link.to}
-              end={link.to === "/"}
-              className={({ isActive }) =>
-                `rounded-2xl px-4 py-3 text-base font-semibold transition-colors ${
-                  isActive ? "bg-white/10 text-white" : "text-muted-foreground"
-                }`
-              }
+          {NAV_LINKS.map(({ label, id }) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              onClick={() => setMenuOpen(false)}
+              className="rounded-2xl px-4 py-3 text-base font-semibold text-muted-foreground transition-colors hover:bg-white/10 hover:text-white"
             >
-              {link.label}
-            </NavLink>
+              {label}
+            </a>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
             className="bg-aqua-gradient mt-3 rounded-full px-5 py-3 text-center text-sm font-bold text-[#062830]"
           >
             Book Appointment
-          </Link>
+          </a>
         </nav>
       )}
     </header>

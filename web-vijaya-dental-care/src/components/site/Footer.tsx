@@ -1,16 +1,15 @@
-import { Link } from "react-router-dom";
 import { Clock, MapPin, Phone } from "lucide-react";
 
 import Logo from "./Logo";
 import { CLINIC, SOCIALS } from "@/lib/clinic";
 
 const FOOTER_LINKS = [
-  { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
-  { label: "Treatments", to: "/treatments" },
-  { label: "Doctors", to: "/doctors" },
-  { label: "Gallery", to: "/gallery" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", id: "home" },
+  { label: "About Us", id: "about" },
+  { label: "Treatments", id: "treatments" },
+  { label: "Doctors", id: "doctors" },
+  { label: "Gallery", id: "gallery" },
+  { label: "Contact", id: "contact" },
 ] as const;
 
 export default function Footer() {
@@ -40,14 +39,14 @@ export default function Footer() {
         <nav aria-label="Footer">
           <h3 className="text-sm font-extrabold uppercase tracking-widest text-aqua-light">Explore</h3>
           <ul className="mt-4 space-y-2.5">
-            {FOOTER_LINKS.map((link) => (
-              <li key={link.to}>
-                <Link
-                  to={link.to}
+            {FOOTER_LINKS.map(({ label, id }) => (
+              <li key={id}>
+                <a
+                  href={`#${id}`}
                   className="text-sm font-medium text-muted-foreground transition-colors hover:text-white"
                 >
-                  {link.label}
-                </Link>
+                  {label}
+                </a>
               </li>
             ))}
           </ul>
