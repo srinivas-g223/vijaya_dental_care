@@ -1,0 +1,7 @@
+{
+  "name": "vijaya-dental-care-repository",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix ./web-vijaya-dental-care run dev --"
+  }
+}

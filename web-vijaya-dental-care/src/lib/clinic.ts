@@ -25,10 +25,6 @@ export function whatsappLink(message: string): string {
 }
 
 export const IMAGES = {
-  reception:
-    "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/b86fd5da-4e24-42f1-be15-f160379a3d53.png",
-  doctorChava:
-    "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/97806dac-ac73-4ec6-91ed-b7f8555eb5d3.png",
   doctorUppalapati:
     "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/435b7ac5-3711-49fc-b8c4-7ed32dcd62a0.png",
   general:
@@ -49,9 +45,6 @@ export const IMAGES = {
     "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/a443c4e0-2155-48a0-8b8a-a2904a1141d2.png",
   sterile:
     "https://9pfm8a8aquvjpku0j9vbs.rork.app/~assets/img/3ba8e4fa-5c32-473c-abd4-66b19ce3b35a.png",
-  galleryProfessional: "/gallery-dental-professional.jpg",
-  gallerySmile: "/gallery-healthy-smile.jpg",
-  galleryReception: "/gallery-clinic-reception.jpg",
   galleryBraces: "/gallery-braces-smile.jpg",
 } as const;
 
@@ -161,7 +154,6 @@ export interface GalleryItem {
 }
 
 export const GALLERY: GalleryItem[] = [
-  { image: IMAGES.reception, caption: "Reception & waiting lounge", category: "clinic" },
   { image: IMAGES.equipment, caption: "Modern operatory", category: "equipment" },
   { image: IMAGES.cosmetic, caption: "Smile makeover result", category: "smiles" },
   { image: IMAGES.general, caption: "Routine check-up", category: "treatments" },
@@ -172,9 +164,6 @@ export const GALLERY: GalleryItem[] = [
   { image: IMAGES.rootCanal, caption: "Root canal treatment", category: "treatments" },
   { image: IMAGES.implants, caption: "Implant planning", category: "treatments" },
   { image: IMAGES.filling, caption: "Tooth filling", category: "treatments" },
-  { image: IMAGES.galleryProfessional, caption: "Illustrative dental professional", category: "clinic" },
-  { image: IMAGES.gallerySmile, caption: "Healthy smile portrait", category: "smiles" },
-  { image: IMAGES.galleryReception, caption: "Illustrative dental clinic reception", category: "clinic" },
   { image: IMAGES.galleryBraces, caption: "Braces smile close-up", category: "smiles" },
   { image: "/gallery-consultation-room.jpg", caption: "Consultation room", category: "clinic" },
   { image: "/gallery-waiting-room.jpg", caption: "Patient waiting area", category: "clinic" },
