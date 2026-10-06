@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "Vijaya Dental Care",
+      "path": "web-vijaya-dental-care",
+      "framework": "web"
+    }
+  ],
+  "$schema": "https://rork.com/schema/rork.json"
+}
